@@ -1,5 +1,6 @@
 package helpers;
 
+import com.codeborne.selenide.Configuration;
 import config.WebConfig;
 import io.qameta.allure.Step;
 import io.qameta.allure.selenide.AllureSelenide;
@@ -25,11 +26,17 @@ public class BaseTest {
         final WebConfig config = ConfigFactory.create(WebConfig.class, getProperties( ));
         browser = config.getBrowser( );
         browserVersion = config.getBrowserVersion( );
+
         startMaximized = true;
         baseUrl = config.getBaseUrl( );
         DesiredCapabilities capabilities = new DesiredCapabilities( );
         capabilities.setCapability("enableVNC", config.isEnableVnc( ));
         capabilities.setCapability("enableVideo", config.isEnableVideo( ));
+        capabilities.setCapability("chromeoptions.args","\"--no-sandbox\"");
+        Configuration.headless = true;
+      //  System.setProperty("chromeoptions.args",
+      //          "\"--no-sandbox\",\"--disable-dev-shm-usage\"");
+
         browserCapabilities = capabilities;
         remote = config.getRemoteDriver( );
        /* step("remote:" + remote);

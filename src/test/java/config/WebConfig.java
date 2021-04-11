@@ -1,6 +1,8 @@
 package config;
 
 import org.aeonbits.owner.Config;
+import org.openqa.selenium.MutableCapabilities;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 @Config.Sources("classpath:${env}.properties")
 public interface WebConfig extends Config {
@@ -18,7 +20,7 @@ public interface WebConfig extends Config {
     String getBrowser( );
 
     @Key("browser.version")
-    @DefaultValue("89")
+    @DefaultValue("90")
     String getBrowserVersion( );
 
     @Key("base.url")
@@ -27,4 +29,6 @@ public interface WebConfig extends Config {
 
     @Key("remote.driver")
     String getRemoteDriver( );
+
+
 }
