@@ -35,13 +35,13 @@ public class BasePageObject {
         ofNullable(student.getMobileNum( )).ifPresent(s -> $("#userNumber").setValue(student.getMobileNum( )));
         //$("#userNumber").setValue(student.getMobileNum( ));
         ofNullable(student.getBirthDate( )).ifPresent(s ->
-                $("#dateOfBirthInput").sendKeys(chord(CONTROL, "a") + student.getBirthDateIn( ) + ENTER));
+                $("#dateOfBirthInput").scrollTo().sendKeys(chord(CONTROL, "a") + student.getBirthDateIn( ) + ENTER));
         ofNullable(student.getSubjects( )).ifPresent(s -> $("#subjectsInput").setValue(student.getSubjects( )).pressEnter( ));
         if (student.getHobbies( ) != 0)
-            $(format("#hobbies-checkbox-%s", student.getHobbies( ))).parent( ).click( );
-        ofNullable(student.getAddress( )).ifPresent(s -> $("#currentAddress").setValue(student.getAddress( )).pressEnter( ));
-        ofNullable(student.getState( )).ifPresent(s -> $("#react-select-3-input").setValue(student.getState( )).pressEnter( ));
-        ofNullable(student.getCity( )).ifPresent(s -> $("#react-select-4-input").setValue(student.getCity( )).pressEnter( ));
+            $(format("#hobbies-checkbox-%s", student.getHobbies( ))).parent( ).scrollTo().click( );
+        ofNullable(student.getAddress( )).ifPresent(s -> $("#currentAddress").scrollTo().setValue(student.getAddress( )).pressEnter( ));
+        ofNullable(student.getState( )).ifPresent(s -> $("#react-select-3-input").scrollTo().setValue(student.getState( )).pressEnter( ));
+        ofNullable(student.getCity( )).ifPresent(s -> $("#react-select-4-input").scrollTo().setValue(student.getCity( )).pressEnter( ));
         //  ofNullable(student.getIcon( )).ifPresent(s ->  $("#uploadPicture").uploadFile(student.getIcon( )));
         return this;
     }
@@ -61,7 +61,7 @@ public class BasePageObject {
 
     @Step("Submit registration form")
     public void submitForm( ) {
-        $("#submit").click( );
+        $("#submit").scrollTo().click( );
     }
 
     @Step("Validate that Student registration form is opened")

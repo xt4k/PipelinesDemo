@@ -28,7 +28,6 @@
         <plugin.maven.surefire>3.0.0-M5</plugin.maven.surefire><!--2.22.2 3.0.0-M4  3.0.0-M5-->
     </properties>
 
-
     <build>
         <plugins>
             <plugin>
